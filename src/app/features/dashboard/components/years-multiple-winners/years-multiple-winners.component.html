@@ -1,0 +1,40 @@
+<div class="card-header bg-light">
+  <h5 class="card-title mb-0 text-dark">
+    List years with multiple winners
+  </h5>
+</div>
+
+<div class="card-body">
+  <!-- Loading State -->
+  <app-loading 
+    *ngIf="loading" 
+    message="Loading years data...">
+  </app-loading>
+
+  <!-- Error State -->
+  <app-error-message 
+    *ngIf="error"
+    [message]="errorMessage"
+    (retry)="onRetry()">
+  </app-error-message>
+
+  <!-- Success State -->
+  <div *ngIf="!loading && !error && (yearsData$ | async) as data">
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Year</th>
+            <th scope="col" class="text-center">Win Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let year of data.years">
+            <td>{{ year.year }}</td>
+            <td class="text-center">{{ year.winnerCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

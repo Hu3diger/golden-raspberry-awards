@@ -1,0 +1,70 @@
+<div class="card-header bg-light">
+  <h5 class="card-title mb-0 text-dark">
+    Producers with longest and shortest interval between wins
+  </h5>
+</div>
+
+<div class="card-body">
+  <app-loading 
+    *ngIf="loading" 
+    message="Loading producer intervals...">
+  </app-loading>
+  
+  <app-error-message 
+    *ngIf="error && !loading"
+    [message]="errorMessage"
+    (retry)="onRetry()">
+  </app-error-message>
+  
+  <div *ngIf="!loading && !error && (intervalsData$ | async) as data">
+    <!-- Maximum Intervals -->
+    <div class="mb-4">
+      <h6 class="mb-3">Maximum</h6>
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Producer</th>
+              <th scope="col" class="text-center">Interval</th>
+              <th scope="col" class="text-center">Previous Year</th>
+              <th scope="col" class="text-center">Following Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producer of data.max">
+              <td>{{ producer.producer }}</td>
+              <td class="text-center">{{ producer.interval }}</td>
+              <td class="text-center">{{ producer.previousWin }}</td>
+              <td class="text-center">{{ producer.followingWin }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Minimum Intervals -->
+    <div>
+      <h6 class="mb-3">Minimum</h6>
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Producer</th>
+              <th scope="col" class="text-center">Interval</th>
+              <th scope="col" class="text-center">Previous Year</th>
+              <th scope="col" class="text-center">Following Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producer of data.min">
+              <td>{{ producer.producer }}</td>
+              <td class="text-center">{{ producer.interval }}</td>
+              <td class="text-center">{{ producer.previousWin }}</td>
+              <td class="text-center">{{ producer.followingWin }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>  
+    </div>
+  </div>
+</div>

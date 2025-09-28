@@ -1,0 +1,16 @@
+<div class="alert alert-danger d-flex align-items-center" role="alert" aria-live="polite">
+  <i class="fas fa-exclamation-triangle me-3 fs-4"></i>
+  <div class="flex-grow-1">
+    <h6 class="alert-heading mb-2">Oops! Something went wrong</h6>
+    <p class="mb-2">{{ message }}</p>
+    <button 
+      *ngIf="showRetry" 
+      class="btn btn-outline-danger btn-sm"
+      type="button"
+      (click)="onRetry()"
+    >
+      <i class="fas fa-redo me-1"></i>
+      {{ retryText }}
+    </button>
+  </div>
+</div>
