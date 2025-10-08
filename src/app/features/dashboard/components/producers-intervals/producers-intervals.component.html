@@ -16,7 +16,7 @@
     (retry)="onRetry()">
   </app-error-message>
   
-  <div *ngIf="!loading && !error && (intervalsData$ | async) as data">
+  <div *ngIf="!loading && !error && (intervalsData$ | async) as data" class="content">
     <!-- Maximum Intervals -->
     <div class="mb-4">
       <h6 class="mb-3">Maximum</h6>

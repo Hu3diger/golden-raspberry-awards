@@ -19,7 +19,7 @@
   </app-error-message>
 
   <!-- Success State -->
-  <div *ngIf="!loading && !error && (yearsData$ | async) as data">
+  <div *ngIf="!loading && !error && (yearsData$ | async) as data" class="content">
     <div class="table-responsive">
       <table class="table table-sm">
         <thead>

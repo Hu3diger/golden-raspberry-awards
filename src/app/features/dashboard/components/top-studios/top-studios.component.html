@@ -16,7 +16,7 @@
     (retry)="onRetry()">
   </app-error-message>
   
-  <div *ngIf="!loading && !error && (studiosData$ | async) as data">
+  <div *ngIf="!loading && !error && (studiosData$ | async) as data" class="content">
     <div class="table-responsive">
       <table class="table table-sm">
         <thead>
