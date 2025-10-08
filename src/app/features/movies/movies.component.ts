@@ -8,12 +8,11 @@ import { MovieResponse, MovieFilters } from '../../core/models/movies.model';
 import { LoadingComponent } from '../../shared/components/loading/loading.component';
 import { ErrorMessage } from '../../shared/components/error-message/error-message.component';
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
-import { ArrayJoinPipe } from '../../shared/pipes/array-join-pipe';
 
 @Component({
   selector: 'app-movies',
   standalone: true,
-  imports: [CommonModule, FormsModule, LoadingComponent, ErrorMessage, PaginationComponent, ArrayJoinPipe],
+  imports: [CommonModule, FormsModule, LoadingComponent, ErrorMessage, PaginationComponent],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss'
 })

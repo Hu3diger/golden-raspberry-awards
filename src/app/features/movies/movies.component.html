@@ -72,19 +72,17 @@
         <table class="table table-sm mb-0">
           <thead>
             <tr>
+              <th scope="col">ID</th>
               <th scope="col">Year</th>
               <th scope="col">Title</th>
-              <th scope="col">Studios</th>
-              <th scope="col">Producers</th>
               <th scope="col" class="text-center">Winner</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let movie of movieData.content">
-              <td class="fw-medium">{{ movie.year }}</td>
+              <td class="fw-medium">{{ movie.id }}</td>
+              <td>{{ movie.year }}</td>
               <td>{{ movie.title }}</td>
-              <td>{{ movie.studios | arrayJoin }}</td>
-              <td>{{ movie.producers | arrayJoin }}</td>
               <td class="text-center">
                 {{ movie.winner ? 'Yes' : 'No' }}
               </td>

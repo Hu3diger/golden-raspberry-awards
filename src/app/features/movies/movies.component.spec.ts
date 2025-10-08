@@ -6,7 +6,6 @@ import { MovieService } from '../../core/services/movie.service';
 import { LoadingComponent } from '../../shared/components/loading/loading.component';
 import { ErrorMessage } from '../../shared/components/error-message/error-message.component';
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
-import { ArrayJoinPipe } from '../../shared/pipes/array-join-pipe';
 
 describe('MoviesComponent', () => {
   let component: MoviesComponent;
@@ -52,8 +51,7 @@ describe('MoviesComponent', () => {
         FormsModule,
         LoadingComponent,
         ErrorMessage,
-        PaginationComponent,
-        ArrayJoinPipe
+        PaginationComponent
       ],
       providers: [
         { provide: MovieService, useValue: spy }
